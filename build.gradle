@@ -81,8 +81,13 @@ mixin {
 }
 
 repositories {
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
     maven { url = 'https://repo.spongepowered.org/maven/' }
     maven { url = 'https://www.cursemaven.com' }
+
+    flatDir {
+        dirs 'jems'
+    }
 }
 
 dependencies {
@@ -90,6 +95,8 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
     implementation fg.deobf("curse.maven:savage-and-ravage-381736:${config.SAR_FILE}")
     implementation fg.deobf("curse.maven:blueprint-382216:${config.BLUEPRINT_FILE}")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.18:${config.GECKOLIB_VERSION}")
+    implementation fg.deobf("jems:json-entity-models:1.18.2-0.0.1")
 }
 
 jar {

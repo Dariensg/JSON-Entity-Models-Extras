@@ -22,6 +22,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.example.GeckoLibMod;
 
 @Mod(JSONEntityModelsExtras.MOD_ID)
 public class JSONEntityModelsExtras {
@@ -31,5 +32,7 @@ public class JSONEntityModelsExtras {
     public JSONEntityModelsExtras() {
         final ModLoadingContext modLoadingContext = ModLoadingContext.get();
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        GeckoLibMod.DISABLE_IN_DEV = true;
     }
 }
