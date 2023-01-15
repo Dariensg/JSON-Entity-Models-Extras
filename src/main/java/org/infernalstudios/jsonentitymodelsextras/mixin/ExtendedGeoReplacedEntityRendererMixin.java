@@ -46,67 +46,57 @@ public class ExtendedGeoReplacedEntityRendererMixin extends GeoReplacedEntityRen
         if (armorItem instanceof GrieferArmorItem && armorModel instanceof GrieferArmorModel<?> grieferArmorModel) {
             VertexConsumer buffer = ItemRenderer.getArmorFoilBuffer(this.getCurrentRTB(), RenderType.armorCutoutNoCull(armorResource), false, armorForBone.hasFoil());
 
-            switch (bone.getName()) {
-                case "armorhead":
+                if (bone.getName().startsWith("armorhead")) {
                     stack.pushPose();
                     grieferArmorModel.helmet.copyFrom(grieferArmorModel.head);
                     grieferArmorModel.helmet.render(stack, buffer, packedLightIn, packedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);
                     stack.popPose();
-                    break;
-                case "armorbody":
+                } else if (bone.getName().startsWith("armorbody")) {
                     stack.pushPose();
                     grieferArmorModel.chestplate1.copyFrom(grieferArmorModel.body);
                     grieferArmorModel.chestplate1.render(stack, buffer, packedLightIn, packedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);
                     stack.popPose();
-                    break;
-                case "armorleftarm":
+                } else if (bone.getName().startsWith("armorleftarm")) {
                     stack.pushPose();
                     grieferArmorModel.shoulderPadLeft.copyFrom(grieferArmorModel.leftArm);
                     grieferArmorModel.shoulderPadLeft.render(stack, buffer, packedLightIn, packedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);
                     stack.popPose();
-                    break;
-                case "armorrightarm":
+                } else if (bone.getName().startsWith("armorrightarm")) {
                     stack.pushPose();
                     grieferArmorModel.shoulderPadRight.copyFrom(grieferArmorModel.rightArm);
                     grieferArmorModel.shoulderPadRight.render(stack, buffer, packedLightIn, packedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);
                     stack.popPose();
-                    break;
-                case "armorpelvis":
+                } else if (bone.getName().startsWith("armorpelvis")) {
                     stack.pushPose();
                     stack.scale(1.01F, 1.0F, 1.01F);
                     grieferArmorModel.chestplate2.copyFrom(grieferArmorModel.body);
                     grieferArmorModel.chestplate2.render(stack, buffer, packedLightIn, packedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);
                     stack.popPose();
-                    break;
-                case "armorleftleg":
+                } else if (bone.getName().startsWith("armorleftleg")) {
                     stack.pushPose();
                     stack.scale(1.01F, 1.0F, 1.01F);
                     grieferArmorModel.leggingsLeft.copyFrom(grieferArmorModel.leftLeg);
                     grieferArmorModel.leggingsLeft.render(stack, buffer, packedLightIn, packedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);
                     stack.popPose();
-                    break;
-                case "armorrightleg":
+                } else if (bone.getName().startsWith("armorrightleg")) {
                     stack.pushPose();
                     stack.scale(1.01F, 1.0F, 1.01F);
                     grieferArmorModel.leggingsRight.copyFrom(grieferArmorModel.rightLeg);
                     grieferArmorModel.leggingsRight.render(stack, buffer, packedLightIn, packedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);
                     stack.popPose();
-                    break;
-                case "armorrightfoot":
+                } else if (bone.getName().startsWith("armorrightfoot")) {
                     stack.pushPose();
                     stack.scale(1.05F, 1.0F, 1.05F);
                     grieferArmorModel.bootsRight.copyFrom(grieferArmorModel.rightLeg);
                     grieferArmorModel.bootsRight.render(stack, buffer, packedLightIn, packedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);
                     stack.popPose();
-                    break;
-                case "armorleftfoot":
+                } else if (bone.getName().startsWith("armorleftfoot")) {
                     stack.pushPose();
                     stack.scale(1.05F, 1.0F, 1.05F);
                     grieferArmorModel.bootsLeft.copyFrom(grieferArmorModel.leftLeg);
                     grieferArmorModel.bootsLeft.render(stack, buffer, packedLightIn, packedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);
                     stack.popPose();
-                    break;
-            }
+                }
 
             stack.popPose();
             ci.cancel();
